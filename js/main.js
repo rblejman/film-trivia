@@ -3,11 +3,13 @@
 document.querySelector("button").addEventListener("click", getFetch);
 
 function getFetch() {
-  const choice = document.querySelector("input").value;
-  const url = `https://opentdb.com/api.php?amount=10&category=11&difficulty=easy`;
+  const numOfQuest = document.querySelector("#numOfQuest").value;
+  const difficulty = document.querySelector("#difficulty").value;
+  console.log(difficulty);
+  const url = `https://opentdb.com/api.php?amount=${numOfQuest}&category=11&difficulty=${difficulty}`;
 
   fetch(url)
-    .then((res) => res.json()) // parse response as JSON
+    .then((res) => res.json())
     .then((data) => {
       console.log(data);
     })
